@@ -1,3 +1,12 @@
-const { MyMath, superFunction } = require("./utils/MyMath");
+const http = require('http')
 
-console.log(MyMath.sum(5, 5));
+const PORT = 5000;
+
+const requestListener = (request, response) => {
+    const {url, method} = request
+    console.log(url, method)
+}
+
+const server = http.createServer(requestListener);
+
+server.listen(PORT)
